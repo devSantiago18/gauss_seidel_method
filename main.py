@@ -18,7 +18,7 @@ dic_funcs = {
 N = 10
 
 # validando linea dominante
-validate_domain = lambda list_vars: bool(list_vars[0] > list_vars[1] and list_vars[0] > list_vars[2]) 
+validate_domain = lambda list_vars: bool(abs(list_vars[0]) > abs(list_vars[1]) and abs(list_vars[0]) > abs(list_vars[2])) 
 def organize_vars(key, vars):
     if key == 1:
         x,y,z,c = vars
@@ -43,12 +43,11 @@ def funcion_transf(key, values_init, values_aux):
     x,y,z,c = values_init
     x_aux, y_aux,z_aux = values_aux
     if key == 1:
-        return (c + (y*y_aux*-1) + (z*z_aux*-1))/x
+        return (c + ((y*y_aux)*-1) + ((z*z_aux)*-1))/x
     if key == 2:
-        return (c + (x*x_aux*-1) + (z*z_aux*-1))/y
+        return (c + ((x*x_aux)*-1) + ((z*z_aux)*-1))/y
     if key == 3:
-        return (c + (y*y_aux*-1) + (x*x_aux*-1))/z
-    
+        return (c + ((y*y_aux)*-1) + ((x*x_aux)*-1))/z
     
 # Iteraciones
 def process():
